@@ -41,7 +41,7 @@ library(tidyverse)
 ################
 
 # Reading file (n = 39644, p = 61)
-popNews = read.csv("C:\\Users\\Blwndrpwrmlk\\Dropbox\\Baruch\\1. SPRING 2021\\3. STA 9890 - Statistical Learning for Data Mining\\Final Project\\OnlineNewsPopularity.csv",header=TRUE)
+popNews = read.csv("C:\\Users\\****\\OnlineNewsPopularity.csv",header=TRUE)
 
 # 25% random sample, omitting first column
 popNews = popNews[sample(nrow(popNews),9911),]
