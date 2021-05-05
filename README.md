@@ -42,7 +42,7 @@ Creating bootstrapping samples and fitting onto the entire 25% RS dataset allows
 <img src="https://user-images.githubusercontent.com/83367900/117171268-b946ef00-ad98-11eb-8fd9-e41db15915dd.png" width="45%" height="45%">
 
 #
-####  Results / Closing Thoughts
+####  Results
 
 #### Variable Importance
 * The top 3 positive influencers are 26 - 𝑘𝑤_𝑎𝑣𝑔_𝑎𝑣𝑔 (Avg. keyword (avg. shares)), 29 - 𝑠𝑒𝑙𝑓_𝑟𝑒𝑓𝑒𝑟𝑒𝑛𝑐𝑒_𝑎𝑣𝑔_𝑠ℎ𝑎𝑟𝑒𝑠 (Avg. shares of referenced articles in Mashable), and 37 - 𝐿𝐷𝐴_00 (Closeness to LDA topic 0)
@@ -52,10 +52,14 @@ Creating bootstrapping samples and fitting onto the entire 25% RS dataset allows
 
 #### 25% Random Sample vs. Full Dataset Comparison
 * Results were generally the same
-* Overall performance decreased, and Ridge / RF caused runtimes to substantially increase
+* Overall performance decreased, and Ridge / RF caused runtimes to substantially increase (26+ hrs)
 * CV curves had same shapes, while boxplot variances shrank
 
 #### Improvements can be made…
-* RF (still the best performer), AdaBoost, SVM, kNN, NB
+* Using RF (still the best performer), AdaBoost, SVM, kNN, NB, as well as CART and C5.0
 #### … but human behavior is unpredictable!
-Therefore, R2 between 10 – 20% for social sciences is acceptable
+* Therefore, R<sup>2</sup> between 10 – 20% for social sciences is acceptable
+
+#
+#### Closing Thoughts
+While human behavior can be predicted, to a certain extent in order to ascertain some insights from the Mashable dataset, performance may increase under classification models, but not by much for regression models. The performance figures I obtained, via the 25% RS where above average at ~ 24%, where this was significantly reduced under the full dataset run. As such, the unpredictability of human behavior will "cap" performance in a range between 10 - 20%. Therefore, using the full dataset, along with Random Forest, provides only minimal performance gains, but doesn't justify the excessive runtime to create the models. LASSO / EN appeared to be the better regression model choices, having consistently solid performance and quick runtimes. Additionally, by comparing my variable importance and estimated coefficent parameters, a common trait between my results and the authors was the top-ranking variables were not specific-type attributes (e.g. day of the week or article category) but more general in nature, and related to averages. As such, although improvements can surely be made, the data _may_ be insufficent to adequately predict the number of shares for a Mashable news article, based on its popularity.
