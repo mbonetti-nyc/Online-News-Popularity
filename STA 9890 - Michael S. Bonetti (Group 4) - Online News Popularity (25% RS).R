@@ -41,7 +41,7 @@ library(tidyverse)
 ################
 
 # Reading file (n = 39644, p = 61)
-popNews = read.csv("C:\\Users\\****\\OnlineNewsPopularity.csv",header=TRUE)
+popNews = read.csv("C:\\Users\\Blwndrpwrmlk\\Dropbox\\Baruch\\1. SPRING 2021\\3. STA 9890 - Statistical Learning for Data Mining\\Final Project\\OnlineNewsPopularity.csv",header=TRUE)
 
 # 25% random sample, omitting first column
 popNews = popNews[sample(nrow(popNews),9911),]
@@ -64,7 +64,7 @@ popNews = na.omit(popNews)
 # Removing non-predictive variables
 popNews = subset(popNews, select = -c(url, timedelta, is_weekend))
 
-# Converting binomial weekday binomial results to factor
+# Converting weekday binomial results to factor
 popNews$weekday_is_monday       =    factor(popNews$weekday_is_monday) 
 popNews$weekday_is_wednesday    =    factor(popNews$weekday_is_wednesday) 
 popNews$weekday_is_thursday     =    factor(popNews$weekday_is_thursday) 
@@ -670,7 +670,7 @@ ridge.bs.sd = apply(beta.ridge.bs, 1, "sd")
 ######################################
 
 #####################################################
-# 5a. Fits 10-fold CV on Ridge, LASSO, EN, and fit RF
+# 5a. Fits 10-fold CV on LASSO, EN, Ridge, and fit RF
 
 set.seed(1)
 
