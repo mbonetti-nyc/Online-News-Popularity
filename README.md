@@ -34,8 +34,8 @@ On observing the residuals for the training and testing set, based on one of the
 #
 ####  Bootstrapping, Performance and Runtimes
 100 bootstrapping samples were performed, with the runtimes and results tracked, followed by fitting 10-fold CVs onto LASSO, EN, and Ridge, with an RF fitting. This was only done for the 25% RS, as this procedure was incomplete on the full dataset run. 90% confidence intervals of R<sup>2</sup> were consistent at approximately ± 0.05 from the means, with Random Forest performing the best but also with the highest runttimes. \
-<img src="https://user-images.githubusercontent.com/83367900/117349867-e5866c80-ae79-11eb-8754-2ae210f684f0.png" width="40%" height="40%">
-<img src="https://user-images.githubusercontent.com/83367900/117350062-1bc3ec00-ae7a-11eb-9d50-1874aaa95a88.png" width="48.5%" height="48.5%">
+<img src="https://user-images.githubusercontent.com/83367900/117349867-e5866c80-ae79-11eb-8754-2ae210f684f0.png" width="40%" height="40%">\
+<img src="https://user-images.githubusercontent.com/83367900/117350062-1bc3ec00-ae7a-11eb-9d50-1874aaa95a88.png" width="40%" height="40%">
 
 #
 ####  Variable Importance
