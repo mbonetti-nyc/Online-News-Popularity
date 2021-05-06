@@ -17,24 +17,25 @@ Before running regression methods and models, some data cleaning was done in ord
 ####  Creating Statistical Learning Models
 
 #### R<sup>2</sup>
-An 80/20 split of the training and testing set was performed to fit 4 regression models (LASSO, Elastic-net (EN), Ridge, and Random Forest (RF)) 100 times for 100 samples. The R<sup>2 </sup> and runtimes were recorded, with boxplots to visualize these results. RF performed the best in both the training and testing sets, with all four methods generally performing at R<sup>2</sup> = ~ 24%, on average. Because of the field the type of data being analyzed resides in (social sciences), an R<sup>2</sup> of between 10 - 20% is considered normal.\
+An 80/20 split of the training and testing set was performed to fit 4 regression models (LASSO, Elastic-net (EN), Ridge, and Random Forest (RF)) 100 times for 100 samples. The R<sup>2</sup> and runtimes were recorded, with boxplots to visualize these results. RF performed the best in both the training and testing sets, with all four methods generally performing at R<sup>2</sup> = ~ 24%, on average. Because of the field the type of data being analyzed resides in (social sciences), an R<sup>2</sup> of between 10 - 20% is considered normal.\
 <img src="https://user-images.githubusercontent.com/83367900/117169373-0cb83d80-ad97-11eb-8fa9-c381b2064e34.png" width="45%" height="45%">
 
 #### Cross-validation Curves
-For one of the 100 samples, mean-squared-error (MSE) 10-fold cross-validation (CV) curves, using LASSO, EN, and Ridge, were done with Ridge performing the best in the 25% random sample, but the worst in the full dataset. When comparing between the 25% RS and the full dataset, the CV curves, log(lambdas) and runtimes were generally the same, with LASSO and EN curves becoming more tightly defined as more observations were included.\
+For one of the 100 samples, mean-squared-error (MSE) 10-fold cross-validation (CV) curves, using LASSO, EN, and Ridge, were done with Ridge performing the best in the 25% random sample, but the worst in the full dataset. When comparing between the 25% RS and the full dataset, the CV curves, log(λ) and runtimes were generally the same, with LASSO and EN curves becoming more tightly defined as more observations were included.\
 <img src="https://user-images.githubusercontent.com/83367900/117169320-032ed580-ad97-11eb-9379-ab3a5db9977d.png" width="30%" height="30%">
 <img src="https://user-images.githubusercontent.com/83367900/117169333-04f89900-ad97-11eb-8216-6d97b1f2b64b.png" width="30%" height="30%">
 <img src="https://user-images.githubusercontent.com/83367900/117169342-06c25c80-ad97-11eb-8e2d-dc36256d3297.png" width="30%" height="30%">
 
 #
 ####  Residuals
-On observing the residuals for the training and testing set, based on one of the 100 samples, the residual means neared zero, with all methods having roughly the same residual variance, expect for RF training. Even in the testing set, RF was slightly smaller than the other 3 methods of LASSO, EN, and Ridge. The boxplots shrank in variance, overall, as more observations were included.\
+On observing the residuals for the training and testing set, based on one of the 100 samples, the residual medians neared zero, with all methods having roughly the same residual variance, expect for RF training. Even in the testing set, RF was slightly smaller than the other 3 methods of LASSO, EN, and Ridge. The boxplots shrank in variance, overall, as more observations were included.\
 <img src="https://user-images.githubusercontent.com/83367900/117170935-6e2cdc00-ad98-11eb-86e1-71cbd94c6dca.png" width="45%" height="45%">
 
 #
 ####  Bootstrapping, Performance and Runtimes
-100 bootstrapping samples were performed, with the runtimes and results tracked, followed by fitting 10-fold CVs onto LASSO, EN, and Ridge, with an RF fitting. This was only done for the 25% RS, as this procedure was incomplete on the full dataset run.\
-<img src="https://user-images.githubusercontent.com/83367900/117171129-9b798a00-ad98-11eb-8474-853f365c4f44.png" width="45%" height="45%">
+100 bootstrapping samples were performed, with the runtimes and results tracked, followed by fitting 10-fold CVs onto LASSO, EN, and Ridge, with an RF fitting. This was only done for the 25% RS, as this procedure was incomplete on the full dataset run. 90% confidence intervals of R<sup>2</sup> were consistent at approximately ± 0.05 from the means, with Random Forest performing the best but also with the highest runttimes. \
+<img src="https://user-images.githubusercontent.com/83367900/117349867-e5866c80-ae79-11eb-8754-2ae210f684f0.png" width="40%" height="40%">
+<img src="https://user-images.githubusercontent.com/83367900/117350062-1bc3ec00-ae7a-11eb-9d50-1874aaa95a88.png" width="48.5%" height="48.5%">
 
 #
 ####  Variable Importance
@@ -50,7 +51,8 @@ Creating bootstrapping samples and fitting onto the entire 25% RS dataset allows
 * The top two ranking parameters for RF, 𝑘𝑤_𝑎𝑣𝑔_𝑎𝑣𝑔 and 𝑘𝑤_𝑚𝑎𝑥_𝑎𝑣𝑔, exactly match what Fernandes, Vinagre, and Cortez, the original dataset authors, achieved!
 <img src="https://user-images.githubusercontent.com/83367900/117169211-e8f4f780-ad96-11eb-9932-9d743b389b35.png" width="45%" height="45%">
 
-#### 25% Random Sample vs. Full Dataset Comparison
+#### 25% 
+Sample vs. Full Dataset Comparison
 * Results were generally the same
 * Overall performance decreased, and Ridge / RF caused runtimes to substantially increase (26+ hrs)
 * CV curves had same shapes, while boxplot variances shrank
