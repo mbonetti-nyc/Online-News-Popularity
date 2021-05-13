@@ -35,13 +35,23 @@ library(RColorBrewer)
 library(rmutil)
 library(tictoc)
 library(tidyverse)
+library(vroom)
 
 ################
 # II. Load Data
 ################
 
+# Method 1: Download main data directly from UCI ML Repo
+setwd("C:\\Users\\****\\Desktop\\OnlineNewsPopularity")
+download.file(url = "https://archive.ics.uci.edu/ml/machine-learning-databases/00332/OnlineNewsPopularity.zip",
+              destfile = "OnlineNewsPopularity.zip")
+unzip(zipfile = "OnlineNewsPopularity.zip")
+
 # Reading file (n = 39644, p = 61)
-popNews = read.csv("C:\\Users\\****\\OnlineNewsPopularity.csv",header=TRUE)
+popNews = vroom("OnlineNewsPopularity.csv")
+
+# Method 2: Run locally and reading file (n = 39644, p = 61)
+#popNews = read.csv("C:\\Users\\****\\OnlineNewsPopularity.csv",header=TRUE)
 
 # 25% random sample, omitting first column
 popNews = popNews[sample(nrow(popNews),9911),]
